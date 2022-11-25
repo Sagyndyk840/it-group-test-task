@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 /*
+ * Use home controller
+ */
+
+use App\Http\Controllers\Frontend\IndexController as HomeIndexController;
+
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -13,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+ * Frontend routes.
+ */
+
+Route::get('/', HomeIndexController::class)->name('home');
+
+/*
+ * Backend routes.
+ */
