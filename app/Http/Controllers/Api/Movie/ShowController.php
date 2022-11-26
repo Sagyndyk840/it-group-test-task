@@ -16,7 +16,7 @@ class ShowController extends Controller
      */
     public function __invoke ($slug): \Illuminate\Http\JsonResponse
     {
-        $movie = Movie::with('genres')
+        $movie = Movie::with(['genres','media'])
             ->where('slug', $slug)
             ->firstOrFail();
 

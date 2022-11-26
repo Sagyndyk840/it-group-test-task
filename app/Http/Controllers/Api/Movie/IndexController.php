@@ -16,7 +16,7 @@ class IndexController extends Controller
      */
     public function __invoke (Request $request): \Illuminate\Http\JsonResponse
     {
-        $movies = Movie::with('genres')
+        $movies = Movie::with(['genres', 'media'])
             ->orderBy('id', 'desc')
             ->paginate(10);
 
