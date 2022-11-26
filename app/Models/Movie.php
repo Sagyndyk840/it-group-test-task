@@ -22,7 +22,7 @@ class Movie extends Model implements HasMedia
     public function registerMediaCollections (): void
     {
         $this->addMediaCollection('movies')
-            ->useFallbackUrl('/images/default/def.jpg')
+            ->useFallbackUrl('http://127.0.0.1:8000/images/default/def.jpg')
             ->useFallbackPath(public_path('/images/default/def.jpg'));
     }
 
