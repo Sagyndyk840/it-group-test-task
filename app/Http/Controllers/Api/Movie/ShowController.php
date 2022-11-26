@@ -11,12 +11,14 @@ class ShowController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param $slug
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke($slug): \Illuminate\Http\JsonResponse
+    public function __invoke ($slug): \Illuminate\Http\JsonResponse
     {
-        $movie = Movie::with('genres')->where('slug', $slug)->firstOrFail();
+        $movie = Movie::with('genres')
+            ->where('slug', $slug)
+            ->firstOrFail();
 
         return response()->json($movie);
     }

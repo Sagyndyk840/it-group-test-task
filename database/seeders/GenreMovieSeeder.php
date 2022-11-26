@@ -21,8 +21,6 @@ class GenreMovieSeeder extends Seeder
 
         foreach ($movies as $movie) {
             $random = rand(1, 3);
-            dump($random);
-
             for ($i = 0; $i < $random; $i++) {
                 $movie->genres()->attach(rand(1, $genres->count()));
             }

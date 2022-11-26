@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->string('movie_name');
             $table->string('slug');
             $table->boolean('movie_status')->default(false);
-            $table->string('movie_img');
             $table->timestamps();
         });
     }

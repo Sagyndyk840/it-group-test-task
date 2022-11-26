@@ -21,13 +21,11 @@ class MovieFactory extends Factory
         $this->faker->addProvider(new Movie($this->faker));
         $movieName = $this->faker->movie;
 
-
-
         return [
             'movie_name'   => $movieName,
             'slug'         => Str::slug($movieName),
             'movie_status' => $this->faker->randomElement([false, true]),
-            'movie_img'    => 'https://image.tmdb.org/t/p/w500/hZkgoQYus5vegHoetLkCJzb17zJ.jpg'
+
         ];
     }
 }

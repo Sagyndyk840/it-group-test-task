@@ -14,9 +14,11 @@ class IndexController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(Request $request): \Illuminate\Http\JsonResponse
+    public function __invoke (Request $request): \Illuminate\Http\JsonResponse
     {
-        $movies = Movie::orderBy('id','desc')->paginate(10);
+        $movies = Movie::with('genres')
+            ->orderBy('id', 'desc')
+            ->paginate(10);
 
         return response()->json($movies);
     }

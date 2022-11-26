@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Movie;
+use Faker\Factory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,8 +16,15 @@ class MovieSeeder extends Seeder
      */
     public function run ()
     {
-        Movie::factory()
+        $movies = Movie::factory()
             ->count(40)
             ->create();
+
+        foreach ($movies as $movie) {
+            $movie
+                ->addMediaCollection('movies')
+                ->useFallbackUrl('/images/default/def.jpg')
+                ->useFallbackPath(public_path('/images/default/def.jpg'));;
+        }
     }
 }

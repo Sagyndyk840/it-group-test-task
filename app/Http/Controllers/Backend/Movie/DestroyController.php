@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Movie;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class DestroyController extends Controller
@@ -10,11 +11,13 @@ class DestroyController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function __invoke(Request $request)
+    public function __invoke ($id): \Illuminate\Http\RedirectResponse
     {
-        //
+        Movie::findOrFail($id)->delete();
+
+        return redirect()->route('admin.movie.index');
     }
 }
